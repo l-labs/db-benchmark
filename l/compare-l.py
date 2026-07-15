@@ -26,7 +26,7 @@ RELTOL = 1e-4                                                                   
 # measured on the 50 GB tier (EPYC 9454, s0/s16/s48 sweep): q1/q2/q9
 # scan-bound -> 48; q4 tiny fold -> serial; rest -> 16 (one thread
 # per store partition).  Set $L_S to force one -s on other machines.
-S_MODE = {"q1": 48, "q2": 48, "q3": 16, "q4": 0, "q5": 16,
+S_MODE = {"q1": 0, "q2": 48, "q3": 16, "q4": 0, "q5": 16,
           "q6": 16, "q7": 16, "q8": 16, "q9": 48, "q10": 16}
 if os.environ.get("L_S") is not None:
     S_MODE = {q: int(os.environ["L_S"]) for q in QIDS}
